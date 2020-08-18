@@ -30,6 +30,7 @@ function readThenSendFile(data) {
         msg.file = evt.target.result;
         msg.fileName = data.name;
         console.log(msg);
+        console.log('Emit to: ' + roomInput.value);
         socket.emit(roomInput.value, msg);
     };
     reader.readAsDataURL(data);
