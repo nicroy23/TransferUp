@@ -38,6 +38,5 @@ function readThenSendFile(data) {
 socket.on('base64-file', (file) => {
     console.log(file.file);
     showImg.innerHTML = `<img src="${file.file}" style="height: 280px; width: 280px;">`
-    showImg.innerHTML = `<audio controls src="${file.file}">`
 });
 
