@@ -1,4 +1,4 @@
-var socket = io('https://transferup.herokuapp.com/');
+var socket = io('http://localhost:80');
 const showId = document.querySelector('#show-room-id');
 const sendBtn = document.querySelector('#send-btn');
 const roomInput = document.querySelector('#room-input');
@@ -31,7 +31,7 @@ function readThenSendFile(data) {
         msg.fileName = data.name;
         console.log(msg);
         console.log('Emit to: ' + roomInput.value);
-        socket.emit(roomInput.value, msg);
+        socket.emit('transfer-to', {'room': roomInput.value, 'file': msg});
     };
     reader.readAsDataURL(data);
 }

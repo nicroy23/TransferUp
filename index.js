@@ -13,14 +13,15 @@ io.on('connection', (socket) => {
   socket.join(id);
   io.to(id).emit('new-room', id);
   console.log('ID: ' + id);
-  socket.on(id, (file) => {
-    console.log('File received');
-    io.to(id).emit('base64-file', file);
+
+  socket.on('transfer-to', (info) => {
+    socket.join(info.room);
+    io.to(id).emit('base64-file', info.file);
   });
 });
 
 const port = process.env.PORT || 80
 
 http.listen(port, () => {
-  console.log('listening on *:3000');
+  console.log('listening on *:80');
 });
