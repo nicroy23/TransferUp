@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io('https://transferup.herokuapp.com/');
 const showId = document.querySelector('#show-room-id');
 const sendBtn = document.querySelector('#send-btn');
 const roomInput = document.querySelector('#room-input');
