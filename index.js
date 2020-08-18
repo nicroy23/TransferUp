@@ -13,7 +13,7 @@ io.on('connection', (socket) => {
   socket.join(id);
   io.to(id).emit('new-room', id);
   socket.on(id, (file) => {
-    console.log('File received");
+    console.log('File received');
     io.to(id).emit('base64-file', file);
   });
 });
