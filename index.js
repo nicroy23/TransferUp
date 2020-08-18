@@ -12,6 +12,7 @@ io.on('connection', (socket) => {
   var id = crypto.randomBytes(10).toString('hex');
   socket.join(id);
   io.to(id).emit('new-room', id);
+  console.log('ID: ' + id);
   socket.on(id, (file) => {
     console.log('File received');
     io.to(id).emit('base64-file', file);
