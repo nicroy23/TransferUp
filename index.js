@@ -15,7 +15,6 @@ io.on('connection', (socket) => {
   console.log('ID: ' + id);
 
   socket.on('transfer-to', (info) => {
-    socket.join(info.room);
     io.to(info.room).emit('base64-file', info.file);
   });
 });
