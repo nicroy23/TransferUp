@@ -9,7 +9,7 @@ const crypto = require('crypto');
 io.on('connection', (socket) => {
   console.log('a user connected');
 
-  var id = crypto.randomBytes(10).toString('hex');
+  var id = crypto.randomBytes(3).toString('hex');
   socket.join(id);
   io.to(id).emit('new-room', id);
   console.log('ID: ' + id);
