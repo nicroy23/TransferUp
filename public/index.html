@@ -21,45 +21,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div
-      class="row d-flex align-items-center"
-      style="height: 100vh; width: 100vw;"
-    >
-      <div class="col-md text-center left" style="height: 100vh;">
-        <div>
-          <h1 class="title mt-5">Receive</h1>
-          <div class="jumbotron mt-5 ml-3 pt-1 pb-1">
-            <h1 id="show-room-id"></h1>
-          </div>
+    <div class="container-fluid">
+      <div class="row d-flex align-items-center">
+        <div class="col-md text-center left" style="height: 100vh;">
           <div>
-            <h5>
-              Connect to this room id on the device you're sending a file from.
-            </h5>
+            <h1 class="title mt-5">Receive</h1>
+            <div class="jumbotron mt-5 ml-3 pt-1 pb-1">
+              <h1 id="show-room-id"></h1>
+            </div>
+            <div>
+              <h5>
+                Connect to this room id on the device you're sending a file
+                from.
+              </h5>
+            </div>
+          </div>
+          <div class="file-show mt-5 w-75 h-50" id="show-preview">
+            <h4 style="padding-top: 30%;">
+              The file preview will appear here.
+            </h4>
           </div>
         </div>
-        <div class="file-show mt-5 w-75 h-50">
-          <div id="show-img">
-            The file will appear here.
-          </div>
+        <div
+          class="col-md text-center align-middle right"
+          style="height: 100vh;"
+        >
+          <form id="file-form">
+            <h1 class="title mt-5">Transfer</h1>
+            <div class="d-inline-block">
+              <h4 class="mt-5">Enter the transfer id:</h4>
+              <input type="text" name="room-id" class="mb-5" id="room-input" />
+            </div>
+            <br />
+            <input type="file" name="file" class="mt-5 mb-5" id="file-input" />
+            <br />
+            <button class="mt-5 mb-2 btn btn-light btn-lg" id="send-btn">
+              Transfer
+            </button>
+          </form>
         </div>
-      </div>
-      <div class="col-md text-center align-middle right" style="height: 100vh;">
-        <form id="file-form">
-          <h1 class="title mt-5">Transfer</h1>
-          <div class="d-inline-block">
-            <h4 class="mt-5">Enter the transfer id:</h4>
-            <input type="text" name="room-id" class="mb-5" id="room-input" />
-          </div>
-          <br />
-          <input type="file" name="file" class="mt-5 mb-5" id="file-input" />
-          <br />
-          <button
-            class="mt-5 mb-2 btn btn-light btn-lg"
-            id="send-btn"
-          >
-            Transfer
-          </button>
-        </form>
       </div>
     </div>
 
