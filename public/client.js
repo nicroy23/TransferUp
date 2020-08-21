@@ -1,12 +1,13 @@
-var socket = io('https://transferup.herokuapp.com/');
+let socket = io('https://transferup.herokuapp.com/');
 const showId = document.querySelector('#show-room-id');
 const sendBtn = document.querySelector('#send-btn');
 const roomInput = document.querySelector('#room-input');
-var file = document.querySelector('#file-input');
+const downloadBtn = document.querySelector('#download-btn');
+let file = document.querySelector('#file-input');
 const form = document.querySelector('#file-form');
-var showImg = document.querySelector('#show-preview');
-var room;
-var data;
+let showImg = document.querySelector('#show-preview');
+let room;
+let data;
 
 socket.on('new-room', (id) => {
     room = id;
@@ -15,11 +16,11 @@ socket.on('new-room', (id) => {
 
 file.addEventListener('change', (e) => {
     data = e.target.files[0];
-    console.log(data);
 });
 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    downloadBtn.outerHTML = '<a class="btn mt-5" id="download-btn" disable style="background-color: #05386b; color: white;">Download</a>';
 
     readThenSendFile(data);
 });
@@ -44,7 +45,7 @@ socket.on('base64-file', (file) => {
 
     switch (type) {
         case "audio":
-            showImg.innerHTML = `<audio controls><source src="${file.file}" type="${file.type}" class="h-100 w-100"></source></audio>`;
+            showImg.innerHTML = `<audio controls><source src="${file.file}" type="${file.type}" class="h-100 w-100" id="file-wanted"></source></audio>`;
             break;
         
         case "image":
@@ -59,5 +60,7 @@ socket.on('base64-file', (file) => {
             showImg.innerHTML = `<h5>Sorry, file type not supported.</h5>`
             break;
     }
+
+    downloadBtn.outerHTML = `<a class="btn mt-5" id="download-btn" download="t-up" href="${file.file}" style="background-color: #05386b; color: white;">Download</a>`;
 });
 
