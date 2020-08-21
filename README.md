@@ -1,4 +1,4 @@
 # TransferUp
-Simple website to transfer files from phone to pc using websockets.
+Simple website to easily transfer files from different devices using sockets.
 
 https://transferup.herokuapp.com/
