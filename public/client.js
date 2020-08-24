@@ -57,7 +57,7 @@ socket.on('base64-file', (file) => {
             break;
 
         default:
-            showImg.innerHTML = `<h5>Sorry, file type not supported.</h5>`
+            showImg.innerHTML = `<h6>Preview of this type of file not supported.</h6>`
             break;
     }
 
